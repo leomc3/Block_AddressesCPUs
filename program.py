@@ -10,7 +10,7 @@ data_atual = datetime.now()
 print(f"Start: {data_atual}")
 
 # Defina aqui o prefixo desejado (exemplo: "leo")
-PREFIXO_DESEJADO = "1leo"
+PREFIXO_DESEJADO = "1LEO"
 
 # Função que gera endereços e verifica se atendem ao critério
 def encontrar_endereco():
@@ -20,10 +20,10 @@ def encontrar_endereco():
         # Usando script_type "p2pk" ao criar o endereço
         endereco = chave.address(script_type="p2pk")
 
-        print(f"Gerado: {endereco}")  # Exibe para acompanhar a geração
+        #print(f"Gerado: {endereco}")  # Exibe para acompanhar a geração
 
         # Verifica se o endereço começa com o prefixo desejado
-        if endereco.startswith(PREFIXO_DESEJADO):
+        if endereco.lower().startswith(PREFIXO_DESEJADO.lower()):
             return chave.wif(), endereco  # Retorna chave privada e endereço correspondente
 
 # Função para rodar em múltiplos processos
@@ -50,3 +50,4 @@ if __name__ == "__main__":
 
     print(f"Endereço encontrado: {address}")
     print(f"Chave privada (WIF): {wif}")
+#Endereço encontrado: 1LeoR9BES7so8vEgaCksaoZUP1bUxPLs7X
